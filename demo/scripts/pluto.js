@@ -6,6 +6,7 @@
  * Version : 5.1
  * Author : mk31415926535@gmail.com [MrNULL]
  * Blog : mkjs.net
+ * Github : https://github.com/imnull/planet.js
  */
 
 (function (w, D, S, C) {

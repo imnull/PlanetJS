@@ -1,12 +1,13 @@
 (function(w){
 
-	function _define(Type, TMaker, Template){
+	function _define(Base, Type, TMaker, Template){
 
 		function callError(fn, context){
-			var args = Type.slice(arguments, 2);
+			var args = Base.SLICE(arguments, 2);
 			if(Type.isFunction(fn)){
 				fn.apply(context, args);
 			} else {
+				console.log(args)
 				throw args;
 			}
 		}
@@ -66,9 +67,9 @@
 	}
 
 	if(typeof(w.define) == 'function'){
-		w.define('TemplateMaker', ['util/type', 'ui/tmaker', 'ui/template'], _define);
+		w.define('TemplateMaker', ['util/base', 'util/type', 'ui/tmaker', 'ui/template'], _define);
 	} else {
-		w.TemplateMaker = _define(Type, TMaker, Template);
+		w.TemplateMaker = _define(Base, Type, TMaker, Template);
 	}
 
 })(window)

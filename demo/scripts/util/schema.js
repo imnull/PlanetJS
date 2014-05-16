@@ -46,6 +46,7 @@
 				}
 			}
 
+
 			if(Type.isFunction(schema)){
 				return schema(data, index);
 			} else if(Type.isString(schema)){

@@ -157,7 +157,10 @@
 
 					//移除回调方法节点
 					node.removeAttribute(template_invoker);
-
+					//移除相同的ID节点
+					if(this.node.id === node.id){
+						node.removeAttribute('id');
+					}
 
 					//将节点存储到当前对象的fragments对象中
 					//供重置移除时使用

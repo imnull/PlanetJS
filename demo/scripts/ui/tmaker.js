@@ -38,10 +38,15 @@ function _define(Base, Type, Schema, UI){
 							return Type.isNumber(v);
 						case '~':
 						case 'template-invoker':
+						case '.':
+						case 'className':
 							return Type.isString(v);
+						case '#':
+						case 'id':
+							return Type.isString(v) && /^[_$a-z]+[_$a-z\d]*/i.test(v);
 						case 'css':
 						case 'style':
-							return Type.isType(v, 'str|strobj');
+							return Type.isType(v, 'str|obj');
 						case '>':
 						case 'children':
 							if(Type.isObject(v)){
@@ -85,6 +90,14 @@ function _define(Base, Type, Schema, UI){
 						case 'css':
 						case 'style':
 							o.style = V;
+							break;
+						case '.':
+						case 'className':
+							o.className = V;
+							break;
+						case '#':
+						case 'id':
+							o.id = V;
 							break;
 						case '>':
 						case 'children':
